@@ -10,7 +10,6 @@
     "type": "git",
     "url": "git+https://wemakeweb@github.com/wemakeweb/wander.git"
   },
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/wemakeweb/wander/issues"
   },
