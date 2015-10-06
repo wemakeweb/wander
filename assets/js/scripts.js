@@ -45,33 +45,35 @@
 
         gallery: function(){
             if( $('p a:not(:only-child) img').closest('p').length === 0 
-                && $('p img:not(:only-child)').closest('p').length !== 0){
+                && $('p img:not(:only-child)').closest('p').length === 0){
                 return;
             }
 
-            this.getScript('/assets/js/helper/imagesloaded.pkgd.min.js').then(function() {
+            this.getScripts([
+                '/assets/js/helper/imagesloaded.pkgd.min.js',
+                '/assets/js/helper/gallery.min.js'
+            ]).then($.proxy(function() {
                 $('p a:not(:only-child) img').closest('p').addClass('gallery');
                 $('p img:not(:only-child)').closest('p').addClass('gallery');
                 $('.gallery').imagesLoaded($.proxy(this.onGallery, this));
                 $(window).resize($.proxy(this.onGallery, this));
-            });
+            }, this));
         },
 
         onGallery: function(){
-            this.getScript('/assets/js/helper/gallery.min.js').then(function() { // Load in script for gallery
-                    var size = 0;
-                    if ($(window).height() > $(window).width()){
-                        size = $(window).height();
-                    } else {
-                        size = $(window).width();
-                    }
-                    if (size < 210){
-                        size = 210;
-                    }
-                    $('.gallery').removeWhitespace().collagePlus({
-                            'targetHeight': size/5
-                    });
-                });
+            console.log('load')
+            var size = 0;
+            if ($(window).height() > $(window).width()){
+                size = $(window).height();
+            } else {
+                size = $(window).width();
+            }
+            if (size < 210){
+                size = 210;
+            }
+            $('.gallery').removeWhitespace().collagePlus({
+                    'targetHeight': size/5
+            });
         },
 
         fullWidthImages: function(){
@@ -151,7 +153,7 @@
             });
 
             $('.post').each(function(){
-                $(this).css('opacity', '1.0');
+                $(this).addClass('show');
             });
             $('#loadmore').each(function(){
                 $(this).css('opacity', '1.0');
