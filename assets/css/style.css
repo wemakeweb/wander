@@ -119,7 +119,7 @@ body {
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
-    background: rgba(0,0,0,0.7);
+    background: rgba(0, 0, 0, 0.45);
     width: 100%;
     height: 100%
 }
@@ -138,24 +138,28 @@ body {
     margin-left: 0;
     margin-right: 0;
     font-weight: 400;
-    cursor: default
+    cursor: default;
+    text-align: center;
 }
 
-#header .header-content a {
+#header .header-content a, #header .header-content .author {
     text-decoration: none;
-    color: #FFF
+    color: #FFF;
+    font-weight: 600;
 }
 
 #header .header-content .post-data,#header .header-content .tag-data {
-    color: gray;
+    color: white;
     font-size: 14px;
     font-size: 1.4rem;
-    cursor: default
+    cursor: default;
+    text-align: center;
+    font-weight: 300;
 }
 
 #header .header-content .post-data a,#header .header-content .tag-data a {
-    color: #8d8d8d;
-    border: 0
+    color: #FFFFFF;
+    border: 0;
 }
 
 #header .header-content .post-data a:hover,#header .header-content .tag-data a:hover {
@@ -167,8 +171,12 @@ body {
 }
 
 #header .header-content .post-data .date,#header .header-content .tag-data .date {
+    font-family: 'brandon-grotesque';
     -webkit-animation-delay: .75s;
-    animation-delay: .75s
+    animation-delay: .75s;
+    font-weight: 300;
+    letter-spacing: 1px;
+    font-size: 17px;
 }
 
 #header .header-content .post-data .tags,#header .header-content .tag-data .tags {
@@ -185,12 +193,16 @@ body {
     animation-delay: 1.25s
 }
 
-#header .blog-content .blog-title {
+#header .blog-content .blog-title, #header .blog-content .blog-heart {
     font-weight: 700;
     line-height: 60px;
     float: left;
     color: #FFF;
     border: 0
+}
+
+#header .blog-content .blog-heart {
+    float: right
 }
 
 #header .blog-content .blog-description {
@@ -226,8 +238,37 @@ body {
     border: 0
 }
 
+#header #location {
+    font-size: 14px;
+    line-height: normal;
+    margin-top: 15px;
+    color: #656565;
+}
+
+#header #location .city {
+    color: #fd5b5c;
+    font-weight: bold;
+}
+
+#header #location .label {
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #CDCDCD;
+    position: relative;
+    left: -33px;
+    margin-bottom: 3px;
+}
+
+#header #location .fa.fa-location-arrow {
+    margin-left: -31px;
+    color: #333333;
+    position: absolute;
+    margin-top: 3px;
+    font-size: 20px;
+}
+
 .home-template #header,.archive-template #header {
-    height: 60px;
+    height: 90px;
     position: relative;
     background: #FFF
 }
@@ -286,11 +327,23 @@ body {
     padding: 0 20px
 }
 
-.post-template #header .blog-content .blog-title,.tag-template #header .blog-content .blog-title,.author-template #header .blog-content .blog-title {
+.post-template #header .blog-content .blog-title,.tag-template #header .blog-content .blog-title,.author-template #header .blog-content .blog-title, .blog-heart {
     font-size: 14px;
     font-size: 1.4rem;
     letter-spacing: 0;
     margin: 0
+}
+
+.blog-heart {
+    letter-spacing: 1px;
+}
+
+.blog-heart .fa{
+    transition: all 0.2s ease-in-out;
+}
+
+.blog-heart:hover .fa {
+    font-size: 18px;
 }
 
 .post-template #header .blog-content .blog-description,.tag-template #header .blog-content .blog-description,.author-template #header .blog-content .blog-description {
@@ -393,7 +446,7 @@ h2.divider span {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    box-shadow: 0px 0px 2px lightgray;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.08);
     border-radius: 2px;
     -moz-transition: all 0.7s ease-out;
     -o-transition: all 0.7s ease-out;
@@ -404,6 +457,7 @@ h2.divider span {
     -webkit-transform: translateY(5%);
     transform: translateY(5%);
     opacity: 0;
+    overflow: hidden;
 }
 
 #main.archive .post.show {
@@ -415,23 +469,23 @@ h2.divider span {
 }
 
 #main.archive .post:nth-child(1) {
-    transition-delay:0.1s;
+    transition-delay: 0.1s;
 }
 
 #main.archive .post:nth-child(2) {
-    transition-delay:0.2s;
+    transition-delay: 0.2s;
 }
 
 #main.archive .post:nth-child(3) {
-    transition-delay:0.3s;
+    transition-delay: 0.3s;
 }
 
 #main.archive .post:nth-child(4) {
-    transition-delay:0.4s;
+    transition-delay: 0.4s;
 }
 
 #main.archive .post:nth-child(5) {
-    transition-delay:0.5s;
+    transition-delay: 0.5s;
 }
 
 
@@ -467,7 +521,7 @@ h2.divider span {
 }
 
 #main.archive .post .post-title {
-    margin: 0 20px 20px 20px;
+    margin: 0 20px -10px 20px;
     padding-top: 20px;
     font-size: 25px;
     font-size: 2.5rem
@@ -496,14 +550,20 @@ h2.divider span {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box
+;
+    text-align: center;
 }
 
 #main.archive .post .post-meta a {
-    color: inherit
+    color: inherit;
+    width: 100%;
+    text-align: center;
+    display: block;
 }
 
 #main.archive .post .post-meta a:hover {
-    color: black
+    border: none;
+    color: #333;
 }
 
 #main.archive .post .post-meta .date {
@@ -535,19 +595,96 @@ h2.divider span {
 }
 
 #footer {
-    background: #252525;
+    background: #F5F5F5;
     color: #999;
-    font-size: 12px;
-    font-size: 1.2rem;
+    font-size: 11px;
     text-transform: uppercase;
     -webkit-animation-delay: 1s;
     animation-delay: 1s
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 #footer .colophon {
-    padding: 50px 20px;
+    padding: 20px 20px;
     max-width: 600px;
     margin: 0 auto
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;
+    text-align: center;
 }
 
 #footer .colophon section {
@@ -576,11 +713,11 @@ h2.divider span {
         font-size:18px;
         font-size: 1.8rem
     }
-
+    
     #header {
-        height: 500px
+        height: 300px
     }
-
+    
     .single #header .blog-content .blog-title {
         font-size: 18px;
         font-size: 1.8rem;
@@ -595,28 +732,23 @@ h2.divider span {
         background-size: cover;
         background-position: center
     }
-
+    
     .home-template #header .blog-content .blog-description,.archive-template #header .blog-content .blog-description {
         display: block
     }
-
+    
     #header {
         height: 600px
     }
-
-    #header .header-content h1 {
-        font-size: 55px;
-        font-size: 5.5rem
-    }
-
+    
     #main {
         padding: 20px 20px
     }
-
+    
     #main.archive .post {
         width: calc( 50% - ( 20px / 2) )
     }
-
+    
     #main.archive .post.featured {
         width: 100%
     }
@@ -628,11 +760,11 @@ h2.divider span {
         -webkit-box-sizing: border-box;
         box-sizing: border-box
     }
-
+    
     #main.archive .post {
         width: calc( ( 100% - (20px* 2) ) / 3 )
     }
-
+    
     #main.archive .post.featured {
         width: calc( ( 100% - (20px * 2) ) * ( 2 / 3 ) + 20px)
     }
@@ -645,20 +777,20 @@ h2.divider span {
         background-size: cover;
         background-position: center
     }
-
+    
     #header {
         height: 700px
     }
-
+    
     #header .header-content h1 {
         font-size: 55px;
         font-size: 5.5rem
     }
-
+    
     #main.archive .post {
         width: calc( ( 100% - (20px * 3) ) / 4 )
     }
-
+    
     #main.archive .post.featured {
         width: calc( ( 100% - (20px * 3) ) / 2 + 20px)
     }
@@ -667,7 +799,7 @@ h2.divider span {
 h1,h2,h3,h4 {
     margin-top: 30px;
     margin-bottom: 10px;
-    font-family: "Noto Sans",Helvetica,"Helvetica Neue",Arial,sans-serif;
+    font-family: "brandon-grotesque",sans-serif;
     font-weight: bold;
     line-height: 1.2
 }
@@ -926,9 +1058,9 @@ button:hover {
 @media screen and (min-width: 400px) {
     h1,.blog-title {
         font-size:40px;
-        font-size: 4rem
+        font-size: 6rem;
     }
-
+    
     h1,h2,h3,h4 {
         margin-top: 40px;
         margin-bottom: 10px
@@ -940,12 +1072,12 @@ button:hover {
         font-size:50px;
         font-size: 5rem
     }
-
+    
     q {
         width: 100%;
         width: calc(100% + 40px)
     }
-
+    
     img,q {
         max-width: 100%;
         max-width: calc(100% + 40px);
@@ -962,23 +1094,23 @@ button:hover {
         padding-bottom: 0px;
         margin-bottom: 1em
     }
-
+    
     .alignleft img,.alignright img {
         margin: 0px
     }
-
+    
     .alignleft {
         margin-left: -160px;
         margin-right: 2em;
         float: left
     }
-
+    
     .alignleft q,.alignleftq {
         text-align: right;
         margin: 0px;
         width: initial
     }
-
+    
     .alignleftblockquote {
         text-align: right;
         border-left: 0px;
@@ -986,13 +1118,13 @@ button:hover {
         padding-right: 20px;
         padding-left: 0px
     }
-
+    
     .alignright {
         margin-right: -160px;
         margin-left: 2em;
         float: right
     }
-
+    
     .alignright q,.alignrightq {
         text-align: left;
         margin: 0px;
@@ -1003,9 +1135,9 @@ button:hover {
 @media screen and (min-width: 800px) {
     h1,.blog-title {
         font-size:60px;
-        font-size: 6rem
+        font-size: 8rem;
     }
-
+    
     img,q {
         max-width: 110%;
         width: 110%;
@@ -1013,7 +1145,7 @@ button:hover {
         margin-top: 40px;
         margin-bottom: 40px
     }
-
+    
     img[src$="#large"],img [src$="#full"],q[src$="#large"],q [src$="#full"] {
         max-width: 120%;
         width: 120%;
@@ -1021,11 +1153,11 @@ button:hover {
         margin-top: 40px;
         margin-bottom: 40px
     }
-
+    
     .full-image-container {
         margin: 40px 0
     }
-
+    
     .wide {
         max-width: 120%;
         width: 120%;
@@ -1033,7 +1165,7 @@ button:hover {
         margin-top: 40px;
         margin-bottom: 40px
     }
-
+    
     .gallery {
         max-width: 120%;
         width: 120%;
@@ -1051,19 +1183,19 @@ button:hover {
         margin-top: 40px;
         margin-bottom: 40px
     }
-
+    
     img[src$="#large"],img [src$="#full"],q[src$="#large"],q [src$="#full"] {
         max-width: 200%;
         width: 200%;
         margin-left: -50%
     }
-
+    
     .wide {
         max-width: 200%;
         width: 200%;
         margin-left: -50%
     }
-
+    
     .gallery {
         max-width: 200%;
         width: 200%;
@@ -1217,4 +1349,32 @@ button:hover {
 .fluidbox-opened .fluidbox-ghost {
     cursor: -webkit-zoom-out;
     cursor: -moz-zoom-out
+}
+
+.pull-right {
+    float: right;
+}
+
+.pull-left {
+    float: left;
+}
+
+.post-template .blog-title {
+    font-weight: 500;
+}
+
+.post-template .blog-title .fa {
+    margin-right: 3px;
+}
+
+a.follow {
+    font-size: 16px;
+    float: right;
+    font-family: 'brandon-grotesque';
+}
+
+.post-meta .fa {
+    margin-left: 9px;
+    position: relative;
+    top: 1px;
 }
