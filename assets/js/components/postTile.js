@@ -13,7 +13,7 @@ export default class PostTile extends React.Component {
 				<h2 className="post-title">{this.props.post.title}</h2>
 				<section className="post-content" dangerouslySetInnerHTML={{ __html: this.formatPostText()}}></section>
 				<section className="post-meta">
-					<Link to={this.props.post.url}>
+					<Link to={this.props.post.url} query={{id:this.props.post.id}}>
 						Read More
 						<i className="fa fa-chevron-right"></i>
 					</Link>

@@ -238,33 +238,54 @@ body {
     border: 0
 }
 
-#header #location {
+#location {
     font-size: 14px;
-    line-height: normal;
-    margin-top: 15px;
+    line-height: 19px;
     color: #656565;
+    position: absolute;
+    right: 20px;
+    top: 30px;
 }
 
-#header #location .city {
+#location .city {
     color: #fd5b5c;
     font-weight: bold;
 }
 
-#header #location .label {
+#location .label {
     text-transform: uppercase;
-    font-size: 12px;
+    font-size: 11px;
     color: #CDCDCD;
     position: relative;
-    left: -33px;
     margin-bottom: 3px;
+    letter-spacing: 2px;
 }
 
-#header #location .fa.fa-location-arrow {
+#location .fa.fa-location-arrow {
     margin-left: -31px;
     color: #333333;
     position: absolute;
     margin-top: 3px;
     font-size: 20px;
+}
+
+#location .weather, #location .time {
+    opacity: 0.8;
+}
+
+#location .map {
+    float: left;
+    width: 60px;
+    height: 60px;
+    background: lightgray;
+    border: 1px solid transparent;
+    border-radius: 100px;
+    margin-top: 5px;
+}
+
+#location .info {
+    float: left;
+    margin-left: 10px;
 }
 
 .home-template #header,.archive-template #header {

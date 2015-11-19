@@ -1,30 +1,53 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Router, Route, Link } from 'react-router';
+import moment from 'moment';
 
 export default class Post extends React.Component {
 	constructor(props){
 		super(props);
+        
+        this.state = {
+            post: {
+                title: '',
+                tags: [],
+                image: '',
+                author: {
+                    name: ''
+                },
+                html: ''
+            }
+        };
 
-		this.state = {
-			post: window.reactProps.post
-		};
+        this.loadPost();
 	}
 
+    loadPost(){
+        fetch('/_api/posts/' + this.props.location.query.id)
+        .then((response) => {
+            if (response.status >= 400) {
+                throw new Error("Bad response from server");
+            }
+            return response.json();
+        })
+        .then((result) => {
+            this.setState({post: result.post})
+        });
+    }
+
 	render(){
-		let headerStyle = {
-			backgroundImage: 'url(' + this.state.post.image + ')' 
-		};
+        // <div className="pull-right blog-heart">432 <i className="fa fa-heart"></i></div>
 
 		return (
-			<div>
-			<header id="header" className="animated fadeIn" style={headerStyle}>
+			<div className="post-template">
+			<header id="header" className="animated fadeIn" style={{
+                backgroundImage: 'url(' + this.state.post.image + ')' 
+            }}>
     			<div className="header-background">
     			  	<section className="blog-content">
         				<Link id="site-url" className="blog-title" to="/">
         					<i className="fa fa-chevron-left"></i> Back
         				</Link>
-        				<div className="pull-right blog-heart">432 <i className="fa fa-heart"></i></div>
     				</section>
     				<section className="header-content">
         				<h1 className="post-title animated fadeInUp">{this.state.post.title}</h1>
@@ -34,10 +57,10 @@ export default class Post extends React.Component {
                     					data-timesince="{{date format='X'}}"
                     					dateTime="{{date format='YYYY-MM-DDTHH:mm'}}"
                     					title="{{date format='DD MMMM YYYY'}}">
-                    				ago
+                    			 {moment(this.state.post.created_at).fromNow()}
                     			</time>
                      			{(this.state.post.tags || []).join(',')}
-                     			by <span className="author">{this.state.post.author.name}</span>
+                     			 by <span className="author">{this.state.post.author.name}</span>
                 			</span>
             			</span>
     				</section>

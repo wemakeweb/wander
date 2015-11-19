@@ -2,12 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {} from 'array.from';
 import MasonryFactory from 'react-masonry-component';
-let MasonryComponent  = MasonryFactory(React);
+let MasonryComponent = MasonryFactory(React);
 import fetch from 'isomorphic-fetch';
 
 import Footer from './footer';
 import PostTile from './postTile';
 import Header from './header';
+import Currently from './currently';
 
 export default class Feed extends React.Component {
 	constructor(props){
@@ -42,8 +43,9 @@ export default class Feed extends React.Component {
 		});
 
 		return (
-			<div>
+			<div className="home-template">
 				<Header blog={this.state.blog} />
+				<Currently />
 				<main id="main" className="archive">
 					<h2 className="divider"><span>Our Stories</span></h2>
 					<section id="feed">
