@@ -17,9 +17,10 @@ export default class Feed extends React.Component {
 		this.state = {
 			posts: [],
 			blog: {}
-		}
+		};
 
 		this.loadContent();
+		this.loadBlog();
 	}
 
 	loadContent(){
@@ -32,6 +33,19 @@ export default class Feed extends React.Component {
 		})
 		.then((result) => {
 			this.setState({posts: result.posts})
+		});
+	}
+
+	loadBlog(){
+		fetch('_api/blog')
+		.then((response) => {
+			if (response.status >= 400) {
+            	throw new Error("Bad response from server");
+       		}
+        	return response.json();
+		})
+		.then((result) => {
+			this.setState({blog: result.blog})
 		});
 	}
 
