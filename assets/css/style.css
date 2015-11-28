@@ -621,13 +621,14 @@ body {
 }
 
 #location .map {
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
     background: lightgray;
     border-radius: 100px;
-    margin-top: 5px;
     overflow: hidden;
     margin: auto;
+    position: relative;
+    top: -5px;
 }
 
 #location .info {
@@ -1949,7 +1950,7 @@ a.follow {
 }
 
 #location .float-3 .item:last-child div.value{
-  font-size: 21px;
+  font-size: 19px;
 }
 
 #location .float-3 .item div.value:hover {

@@ -9,6 +9,7 @@ import Footer from './footer';
 import PostTile from './postTile';
 import Header from './header';
 import Currently from './currently';
+import NomadLog from './nomadLog';
 
 export default class Feed extends React.Component {
 	constructor(props){
@@ -57,25 +58,28 @@ export default class Feed extends React.Component {
 		});
 
 		return (
-			<div className="home-template">
-				<Header blog={this.state.blog} />
-				<Currently />
-				<main id="main" className="archive">
-					<h2 className="divider"><span>Our Stories</span></h2>
-					<section id="feed">
-						<MasonryComponent 
-							options={{
-								columnWidth: '.post:not(.featured)',
-                				itemSelector: '.post',
-                				gutter: 20
-							}}
-							className="feed" 
-							ref="posts">
-							{posts}
-						</MasonryComponent>
-					</section>
-				</main>
-				<Footer blog={this.state.blog} />
+			<div>
+				<NomadLog />
+				<div className="home-template">
+					<Header blog={this.state.blog} />
+					<Currently />
+					<main id="main" className="archive">
+						<section id="feed">
+							<h2 className="divider"><span>Stories</span></h2>
+							<MasonryComponent 
+								options={{
+									columnWidth: '.post:not(.featured)',
+	                				itemSelector: '.post',
+	                				gutter: 20
+								}}
+								className="feed" 
+								ref="posts">
+								{posts}
+							</MasonryComponent>
+						</section>
+					</main>
+					<Footer blog={this.state.blog} />
+				</div>
 			</div>
 		);
 	}

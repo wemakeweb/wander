@@ -223,6 +223,7 @@ export default class Currently extends React.Component {
 						<div className="item">
 							<div className="label">Currently</div>
 							<div className="value">{current ? current.city : ''}, {current ? current.country : ''}</div>
+							<div className="map"><img src={mapBoxUrl} /></div>
 						</div>
 					</div>
 				</div>
