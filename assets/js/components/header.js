@@ -7,7 +7,7 @@ export default class Header extends React.Component {
 				<div className="header-background">
 					<section className="blog-content animated fadeIn">
 						<a id="site-url" className="blog-title" href={this.props.blog.url}>{this.props.blog.title}</a>
-						<span className="blog-description">{this.props.blog.description}</span>
+						<div className="blog-description">{this.props.blog.description}</div>
 					</section>
 				</div>
 			</header>
