@@ -493,10 +493,10 @@ body {
 .home-template .blog-description {
     text-align: center;
     font-family: 'proxima-nova';
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 500;
     color: #717171;
-    max-width: 500px;
+    max-width: 470px;
     margin: auto;
     line-height: 20px;
 }
@@ -591,7 +591,7 @@ body {
     line-height: 19px;
     color: #717171;
     overflow: hidden;
-    max-width: 600px;
+    max-width: 520px;
     margin: auto;
 }
 
@@ -639,7 +639,7 @@ margin: auto;width: 200px;text-align: center;}
 }
 
 .home-template #header,.archive-template #header {
-    height: 115px;
+    height: 125px;
     position: relative;
     background: #FFF;
 }
@@ -1793,8 +1793,9 @@ a.follow {
 }
 
 .map-selected-city {
-    font-family: 'bebas-neue';
-    font-size: 21px;
+    font-family: "proxima-nova-extra-condensed";
+    font-size: 24px;
+    font-weight: 500;
 }
 
 .map-selected-time {
@@ -1848,7 +1849,8 @@ a.follow {
 
 .map-overlay .float-4 .item span {
     font-size: 18px;
-    font-family: 'bebas-neue';
+    font-family: "proxima-nova-extra-condensed";
+    font-weight: 500;
 }
 
 .map-overlay .float-4 {
@@ -1918,7 +1920,7 @@ a.follow {
 
 #location .float-3 .item {
     text-align: center;
-    border-right: 1px solid #828282;
+    border-right: 1px solid #E8E8E8;
     color: #333;
     margin-top: 12px;
 }
@@ -1936,11 +1938,20 @@ a.follow {
     font-family: "proxima-nova-extra-condensed";
     overflow: hidden;
     padding-top: 7px;
-    font-size: 24px;
+    font-size: 28px;
     font-weight: 500;
     height: 27px;
+    cursor: pointer;
 }
 
 #location .float-3 .item:last-child {
     border-right: none;
+}
+
+#location .float-3 .item:last-child div.value{
+  font-size: 21px;
+}
+
+#location .float-3 .item div.value:hover {
+    color:  #fd5b5c;
 }

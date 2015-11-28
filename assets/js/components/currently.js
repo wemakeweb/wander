@@ -5,6 +5,7 @@ import moment from 'moment';
 import Mapbox from './map';
 import ModalViewer from './modalViewer';
 import DOM from '../lib/dom';
+import geo from '../lib/geo';
 
 let accessToken = 'pk.eyJ1Ijoic2ViYXN0aWFub3R0byIsImEiOiJjaWhha2Y5MmkwdWxodW1raTBsYzZrdGt4In0.20GmXaSYLdHlZwMmbdOcbw';
 
@@ -30,8 +31,34 @@ export default class Currently extends React.Component {
 		})
 		.then((result) => {
 			this.updateTime();
-			this.setState({locations: result.locations});
+			this.setState({
+				locations: result.locations,
+				distance: this.getDistance(result.locations)
+			});
 		});
+	}
+
+	getDistance(locations){
+		let first = true;
+		let sum = 0;
+
+		locations.forEach((city, index) => {
+			if(first) {
+				return first = false;
+			}
+
+			let a = locations[index - 1];
+			let b = locations[index];
+
+			sum += geo.getDistanceBetweenPoints(
+				a.cords[0],
+				a.cords[1],
+				b.cords[0],
+				b.cords[1]
+			);
+		});
+
+		return Math.floor(sum);
 	}
 
 	updateTime(){
@@ -186,12 +213,12 @@ export default class Currently extends React.Component {
 				}}>
 					<div className="float-3">
 						<div className="item">
-							<div className="label">Km traveled</div>
-							<div className="value">300</div>
+							<div className="label">Distance</div>
+							<div className="value">{this.state.distance} km</div>
 						</div>
 						<div className="item">
 							<div className="label">Places visited</div>
-							<div className="value">12</div>
+							<div className="value">{this.state.locations ? this.state.locations.length : 0}</div>
 						</div>
 						<div className="item">
 							<div className="label">Currently</div>
