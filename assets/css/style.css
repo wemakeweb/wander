@@ -432,12 +432,13 @@ html {
 body {
     height: 100%;
     min-height: 100%;
-    font-family: "Noto Sans",Helvetica,"Helvetica Neue",Arial,sans-serif;
     font-size: 14px;
     font-size: 1.4rem;
     line-height: 1.8;
     color: #080808;
     overflow-y: scroll
+
+
 }
 
 #header {
@@ -588,8 +589,10 @@ body {
 #location {
     font-size: 14px;
     line-height: 19px;
-    color: #656565;
+    color: #717171;
     overflow: hidden;
+    max-width: 600px;
+    margin: auto;
 }
 
 #location .city {
@@ -600,7 +603,6 @@ body {
 #location .label {
     text-transform: uppercase;
     font-size: 11px;
-    color: #CDCDCD;
     position: relative;
     margin-bottom: 3px;
     letter-spacing: 2px;
@@ -619,19 +621,17 @@ body {
 }
 
 #location .map {
-    float: left;
     width: 60px;
     height: 60px;
     background: lightgray;
     border-radius: 100px;
     margin-top: 5px;
     overflow: hidden;
+    margin: auto;
 }
 
 #location .info {
-    float: left;
-    margin-left: 10px;
-}
+margin: auto;width: 200px;text-align: center;}
 
 #location .map img {
     margin: 0;
@@ -639,7 +639,7 @@ body {
 }
 
 .home-template #header,.archive-template #header {
-    height: 130px;
+    height: 115px;
     position: relative;
     background: #FFF;
 }
@@ -1902,5 +1902,45 @@ a.follow {
 }
 
 .home-template #header {
-    margin: 90px;
+    margin-top: 90px;
+}
+
+.float-3 {
+    overflow: hidden;
+    clear: both;
+}
+
+.float-3 .item {
+    width: 33.3%;
+    float: left;
+    box-sizing: border-box;
+}
+
+#location .float-3 .item {
+    text-align: center;
+    border-right: 1px solid #828282;
+    color: #333;
+    margin-top: 12px;
+}
+
+#location .float-3 .item div.label {
+    text-transform: uppercase;
+    font-family: 'proxima-nova';
+    font-size: 12px;
+    letter-spacing: 1px;
+    font-weight: 400;
+    color: #717171;
+}
+
+#location .float-3 .item div.value {
+    font-family: "proxima-nova-extra-condensed";
+    overflow: hidden;
+    padding-top: 7px;
+    font-size: 24px;
+    font-weight: 500;
+    height: 27px;
+}
+
+#location .float-3 .item:last-child {
+    border-right: none;
 }

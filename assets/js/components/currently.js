@@ -102,7 +102,7 @@ export default class Currently extends React.Component {
 
 		if(this.state.locations){
 			current = locations[this.state.locations.length-1];
-			mapBoxUrl = `https://api.mapbox.com/v4/mapbox.streets/${current.cords[1]},${current.cords[0]},10/100x100.png?access_token=${accessToken}`;
+			mapBoxUrl = `https://api.mapbox.com/v4/mapbox.streets/${current.cords.join(',')},9/100x100.png?access_token=${accessToken}`;
 		}
 
 		if(this.state.detailView){
@@ -184,14 +184,19 @@ export default class Currently extends React.Component {
 						selectedIndex: index
 					})
 				}}>
-					<div className="map">
-						{current ? <img src={mapBoxUrl} /> : ''}
-					</div>
-					<div className="info">
-						<div className="label">Currently</div>
-						<div className="city">{current ? current.city : ''}, <span className="country">{current ? current.country : ''}</span></div>
-						<div className="weather">{current && current.weather ? current.weather.temp + ' °C': ''}  · {current && current.weather ? current.weather.str : ''}</div> 
-						<div className="time">{current ? this.state.now.tz(current.timezone).format('h:mm a') : ''}</div>
+					<div className="float-3">
+						<div className="item">
+							<div className="label">Km traveled</div>
+							<div className="value">300</div>
+						</div>
+						<div className="item">
+							<div className="label">Places visited</div>
+							<div className="value">12</div>
+						</div>
+						<div className="item">
+							<div className="label">Currently</div>
+							<div className="value">{current ? current.city : ''}, {current ? current.country : ''}</div>
+						</div>
 					</div>
 				</div>
 			</div>
