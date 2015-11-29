@@ -65,7 +65,7 @@ export default class Feed extends React.Component {
 					<Currently />
 					<main id="main" className="archive">
 						<section id="feed">
-							<h2 className="divider"><span>Stories</span></h2>
+							<h2 className="divider ui-label"><span>Stories</span></h2>
 							<MasonryComponent 
 								options={{
 									columnWidth: '.post:not(.featured)',

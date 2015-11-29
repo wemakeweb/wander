@@ -57,10 +57,9 @@ export default class Post extends React.Component {
                     					data-timesince="{{date format='X'}}"
                     					dateTime="{{date format='YYYY-MM-DDTHH:mm'}}"
                     					title="{{date format='DD MMMM YYYY'}}">
-                    			 {moment(this.state.post.created_at).fromNow()}
+                    			 {moment(this.state.post.created_at).fromNow()} 
                     			</time>
-                     			{(this.state.post.tags || []).join(',')}
-                     			 by <span className="author">{this.state.post.author.name}</span>
+                     			{(this.state.post.tags || []).join(',')} by <span className="author">{this.state.post.author.name}</span>
                 			</span>
             			</span>
     				</section>
